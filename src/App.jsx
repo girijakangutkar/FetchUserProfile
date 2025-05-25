@@ -18,12 +18,12 @@ function App() {
     );
   };
 
+  const ApiKey = import.meta.env.VITE_API_KEY;
+
   async function userProfile() {
     setLoading(true);
     try {
-      const response = await axios.get(
-        "https://jsonplaceholder.typicode.com/users"
-      );
+      const response = await axios.get(`${ApiKey}`);
       setUser(response.data);
       {
         console.log(response.data);
